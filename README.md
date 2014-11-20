@@ -39,6 +39,9 @@ Changelog
 
 **Current Development**
 
+* Read HAR files
+* Initial release
+
 Downloads
 ---------
 
