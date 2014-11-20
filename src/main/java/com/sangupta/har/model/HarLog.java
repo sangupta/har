@@ -21,6 +21,8 @@
 
 package com.sangupta.har.model;
 
+import java.util.List;
+
 public class HarLog {
 	
 	public static final String DEFAULT_HAR_VERSION = "1.1";
@@ -31,9 +33,9 @@ public class HarLog {
 	
 	public HarCreator browser;
 	
-	public HarPage[] pages;
+	public List<HarPage> pages;
 	
-	public HarEntry[] entries;
+	public List<HarEntry> entries;
 	
 	public String comment;
 

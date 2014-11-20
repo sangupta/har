@@ -21,6 +21,8 @@
 
 package com.sangupta.har.model;
 
+import java.util.List;
+
 public class HarResponse {
 	
 	public int status;
@@ -29,9 +31,9 @@ public class HarResponse {
 	
 	public String httpVersion;
 	
-	public HarHeader[] headers;
+	public List<HarHeader> headers;
 	
-	public HarCookie[] cookies;
+	public List<HarCookie> cookies;
 	
 	public HarContent content;
 	

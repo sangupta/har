@@ -21,11 +21,13 @@
 
 package com.sangupta.har.model;
 
+import java.util.List;
+
 public class HarPostData {
 	
 	public String mimeType;
 	
-	public HarPostParam[] params;
+	public List<HarPostParam> params;
 	
 	public String text;
 	
