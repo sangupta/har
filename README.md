@@ -15,6 +15,25 @@ online, or install a browser extension or run a PHP (or another) server.
 `har` is also a set of utilities that help in working with files, like extracting specific pages
 or request, or viewing the response. 
 
+Usage
+-----
+
+Reading a HAR file is as easy as:
+
+```java
+// via a file
+Har har = HarUtils.read(new File("~/test.har"));
+
+// via a string
+har = HarUtils.read(" { .... HAR as string } ");
+
+// via a reader
+har = HarUtils.read(new FileReader(new File("~/test.har")));
+
+// via a JsonElement
+har = HarUtils.read(harJsonElement);
+```
+
 Changelog
 ---------
 
