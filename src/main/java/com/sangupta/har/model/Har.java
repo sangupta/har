@@ -30,5 +30,5 @@ package com.sangupta.har.model;
 public class Har {
 	
 	public HarLog log;
-
+	
 }

@@ -21,6 +21,8 @@
 
 package com.sangupta.har.model;
 
+import java.util.List;
+
 public class HarPage {
 	
 	public String startedDateTime;
@@ -32,6 +34,8 @@ public class HarPage {
 	public HarPageTiming pageTimings;
 	
 	public String comment;
+	
+	public transient List<HarEntry> entries;
 	
 	@Override
 	public String toString() {

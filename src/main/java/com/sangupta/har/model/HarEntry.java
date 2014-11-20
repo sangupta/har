@@ -21,7 +21,9 @@
 
 package com.sangupta.har.model;
 
-public class HarEntry {
+import com.sangupta.jerry.util.UriUtils;
+
+public class HarEntry implements Comparable<HarEntry> {
 
 	public String pageref;
 	
@@ -42,5 +44,19 @@ public class HarEntry {
 	public String connection;
 	
 	public String comment;
+	
+	@Override
+	public String toString() {
+		return request.method + " " + UriUtils.extractPath(request.url);
+	}
+
+	@Override
+	public int compareTo(HarEntry o) {
+		if(o == null) {
+			return -1;
+		}
+		// parse the time and then return
+		return this.startedDateTime.compareTo(o.startedDateTime);
+	}
 	
 }

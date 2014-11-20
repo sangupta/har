@@ -25,6 +25,7 @@ import java.io.File;
 
 import com.sangupta.har.HarUtils;
 import com.sangupta.har.model.Har;
+import com.sangupta.har.model.HarEntry;
 import com.sangupta.har.model.HarPage;
 import com.sangupta.jerry.util.AssertUtils;
 
@@ -53,6 +54,10 @@ public class ViewHar implements Runnable {
 			return;
 		}
 		
+		// connect references
+		HarUtils.connectReferences(har);
+		
+		// start displaying
 		System.out.println("Number of pages viewed: " + har.log.pages.size());
 		System.out.println();
 		
@@ -60,7 +65,9 @@ public class ViewHar implements Runnable {
 			System.out.println(page);
 			
 			// output the calls for this page
-			
+			for(HarEntry entry : page.entries) {
+				System.out.println("\t" + entry);
+			}
 		}
 	}
 

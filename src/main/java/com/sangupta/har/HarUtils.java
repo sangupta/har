@@ -24,12 +24,17 @@ package com.sangupta.har;
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonSyntaxException;
 import com.sangupta.har.model.Har;
+import com.sangupta.har.model.HarEntry;
+import com.sangupta.har.model.HarPage;
 import com.sangupta.jerry.util.AssertUtils;
 import com.sangupta.jerry.util.CheckUtils;
 import com.sangupta.jerry.util.GsonUtils;
@@ -91,4 +96,46 @@ public class HarUtils {
 		return GsonUtils.getGson().fromJson(jsonElement, Har.class);
 	}
 
+	/**
+	 * Connect references between page and entries so that they can be obtained as needed.
+	 * 
+	 * @param har
+	 */
+	public static void connectReferences(Har har) {
+		if(har == null) {
+			throw new IllegalArgumentException("HAR object cannot be null");
+		}
+		
+		if(har.log == null || AssertUtils.isEmpty(har.log.pages)) {
+			// nothing to do
+			return;
+		}
+		
+		if(AssertUtils.isEmpty(har.log.entries)) {
+			// no har entry - initialize empty list
+			for(HarPage page : har.log.pages) {
+				page.entries = new ArrayList<HarEntry>();
+			}
+			
+			return;
+		}
+		
+		for(HarPage page : har.log.pages) {
+			String pageID = page.id;
+			
+			List<HarEntry> entries = new ArrayList<HarEntry>();
+			
+			for(HarEntry entry : har.log.entries) {
+				if(pageID.equals(entry.pageref)) {
+					entries.add(entry);
+				}
+			}
+			
+			// sort these based on start date
+			Collections.sort(entries);
+			
+			// set the parent reference
+			page.entries = entries;
+		}
+	}
 }
