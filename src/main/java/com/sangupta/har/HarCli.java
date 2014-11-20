@@ -21,6 +21,8 @@
 
 package com.sangupta.har;
 
+import com.sangupta.har.command.ViewHar;
+
 import io.airlift.command.Cli;
 import io.airlift.command.Cli.CliBuilder;
 import io.airlift.command.Help;
@@ -39,7 +41,7 @@ public class HarCli {
         CliBuilder<Runnable> builder = Cli.<Runnable>builder("har")
                                           .withDescription("HAR power tool")
                                           .withDefaultCommand(Help.class)
-                                          .withCommands(Help.class);
+                                          .withCommands(Help.class, ViewHar.class);
 	
 		Cli<Runnable> cliParser = builder.build();
         
