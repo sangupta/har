@@ -57,6 +57,15 @@ public class ViewHar implements Runnable {
 		// connect references
 		HarUtils.connectReferences(har);
 		
+		// for now view in browser
+		viewInBrowser(har);
+	}
+	
+	private void viewInBrowser(Har har) {
+		
+	}
+	
+	private void viewInConsole(Har har) {
 		// start displaying
 		System.out.println("Number of pages viewed: " + har.log.pages.size());
 		System.out.println();

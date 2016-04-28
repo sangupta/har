@@ -39,4 +39,10 @@ public class HarTiming {
 	
 	public String comment;
 
+
+	@Override
+	public String toString() {
+		return "HarTiming [blocked=" + blocked + ", dns=" + dns + ", connect=" + connect + ", send=" + send + ", wait=" + wait + ", receive=" + receive + ", ssl=" + ssl + ", comment=" + comment + "]";
+	}
+	
 }

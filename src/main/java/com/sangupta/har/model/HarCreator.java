@@ -31,7 +31,7 @@ public class HarCreator {
 	
 	@Override
 	public String toString() {
-		return "[Creator: " + this.name + " (" + this.version + ") ]";
+		return "[HARCreator: " + this.name + " (" + this.version + ") ]";
 	}
 
 }

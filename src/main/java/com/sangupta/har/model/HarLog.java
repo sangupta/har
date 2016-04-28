@@ -39,4 +39,9 @@ public class HarLog {
 	
 	public String comment;
 
+	@Override
+	public String toString() {
+		return "HarLog [version=" + version + ", creator=" + creator + ", browser=" + browser + ", pages=" + pages + ", entries=" + entries + ", comment=" + comment + "]";
+	}
+	
 }

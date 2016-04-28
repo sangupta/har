@@ -30,5 +30,9 @@ package com.sangupta.har.model;
 public class Har {
 	
 	public HarLog log;
-	
+
+	@Override
+	public String toString() {
+		return "Har [log=" + log + "]";
+	}
 }
