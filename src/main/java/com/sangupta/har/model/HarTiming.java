@@ -1,7 +1,7 @@
 /**
  *
  * har - HAR file reader, writer and viewer
- * Copyright (c) 2014, Sandeep Gupta
+ * Copyright (c) 2014-2016, Sandeep Gupta
  * 
  * http://sangupta.com/projects/har
  * 
